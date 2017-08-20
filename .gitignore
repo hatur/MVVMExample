@@ -1,9 +1,4 @@
 .vs/FokWPF/v15/.suo
-FokWPF.sln
-FokWPF/App.config
-FokWPF/FokWPF.csproj
-FokWPF/Properties/AssemblyInfo.cs
-FokWPF/Properties/Resources.Designer.cs
 FokWPF/Properties/Resources.resx
 FokWPF/bin/Debug/FokWPF.exe
 FokWPF/bin/Debug/FokWPF.exe.config
