@@ -62,8 +62,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="Views\MainNewsView.xaml.cs">
