@@ -63,6 +63,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Converters\MultiValueConverter.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="Views\MainNewsView.xaml.cs">

@@ -1,5 +1,6 @@
 ﻿using FokWPF.Common;
 using FokWPF.Models;
+using FokWPF;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,7 @@ namespace FokWPF.ViewModels
 
         public RelayCommand ReiceveNewsCommand
         {
-            get { return new RelayCommand(o => ReceiveData(), o => !string.IsNullOrWhiteSpace(URL)); }
+            get { return new RelayCommand(o => ReceiveData(o), o => !string.IsNullOrWhiteSpace(URL)); }
         }
 
         public NewsModel News
@@ -45,9 +46,9 @@ namespace FokWPF.ViewModels
             set { News.Content = value; OnPropertyChanged(nameof(Content)); }
         }
 
-        public void ReceiveData()
+        public void ReceiveData(object parameter)
         {
-            Debug.WriteLine(URL);
+            Debug.WriteLine("MultiValueParameter: " + (parameter as Tuple<string, string>).Item1 + " & " + (parameter as Tuple<string, string>).Item2);
             var request = WebRequest.Create(URL);
             var response = request.GetResponse();
 

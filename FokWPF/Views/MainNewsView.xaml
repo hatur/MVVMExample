@@ -4,16 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FokWPF"
+        xmlns:Converters="clr-namespace:FokWPF.Converters"
         xmlns:ViewModels="clr-namespace:FokWPF.ViewModels" x:Class="FokWPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="356.96" Width="525">
     <Window.DataContext>
         <ViewModels:NewsViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Converters:MultiValueConverter x:Key="MultiValueCoverter" />
+    </Window.Resources>
     <Grid Margin="0,0,0,-4" Height="330" VerticalAlignment="Top">
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding Content}" VerticalAlignment="Top" Height="275" Width="497"/>
-        <TextBox HorizontalAlignment="Left" Height="19" Margin="10,294,0,0" TextWrapping="Wrap" Text="{Binding URL, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="380" RenderTransformOrigin="0.543,0.873"/>
-        <Button Content="Receive Data" HorizontalAlignment="Left" Margin="395,294,0,0" VerticalAlignment="Top" Width="112" Height="19" Command="{Binding ReiceveNewsCommand, Mode=OneWay}"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="19" Margin="10,294,0,0" TextWrapping="Wrap" Text="{Binding URL, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="380" RenderTransformOrigin="0.543,0.873"/>
+        <Button x:Name="button1" Content="Receive Data" HorizontalAlignment="Left" Margin="395,294,0,0" VerticalAlignment="Top" Width="112" Height="19" Command="{Binding ReiceveNewsCommand, Mode=OneWay}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource MultiValueCoverter}">
+                    <Binding ElementName="button1" Path="Content"/>
+                    <Binding ElementName="button1" Path="Content"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
 
     </Grid>
 </Window>
